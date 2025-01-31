@@ -53,6 +53,10 @@ def test_10():
     summ = delivery_cost_calculation(30.1, "small", False, "normal")
     assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
 
+def test_11():
+    summ = delivery_cost_calculation(67.0, "small", False, "normal")
+    assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
+
 
 # Тесты на ограничения по типам данных
 @pytest.mark.parametrize('distance', ["фыв", "asd", "#!%", " "])
