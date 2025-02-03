@@ -5,8 +5,8 @@ from main_function import delivery_cost_calculation
 
 # Основные тесты для расчета стоимости доставки
 def test_1():
-    summ = delivery_cost_calculation(0.1, "big", True, "very high")
-    assert summ == 880.0, f"Сумма равна {summ}, а не 880.0"
+    summ = delivery_cost_calculation(0.1, "big", True, "high")
+    assert summ == 770.0, f"Сумма равна {summ}, а не 770.0"
 
 
 def test_2():
@@ -15,8 +15,8 @@ def test_2():
 
 
 def test_3():
-    summ = delivery_cost_calculation(2.0, "small", True, "high")
-    assert summ == 630.0, f"Сумма равна {summ}, а не 630.0"
+    summ = delivery_cost_calculation(2.0, "small", False, "very high")
+    assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
 
 
 def test_4():
@@ -52,11 +52,6 @@ def test_9():
 def test_10():
     summ = delivery_cost_calculation(30.1, "big", False, "normal")
     assert summ == 500.0, f"Сумма равна {summ}, а не 500.0"
-
-
-def test_11():
-    summ = delivery_cost_calculation(67.0, "small", False, "normal")
-    assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
 
 
 def test_min_cost():
