@@ -40,21 +40,27 @@ def test_7():
 
 
 def test_8():
-    summ = delivery_cost_calculation(29.9, "small", False, "very high")
-    assert summ == 480.0, f"Сумма равна {summ}, а не 480.0"
+    summ = delivery_cost_calculation(29.9, "small", True, "very high")
+    assert summ == 960.0, f"Сумма равна {summ}, а не 960.0"
 
 
 def test_9():
-    summ = delivery_cost_calculation(30.0, "big", False, "increased")
-    assert summ == 480.0, f"Сумма равна {summ}, а не 480.0"
+    summ = delivery_cost_calculation(30.0, "big", True, "increased")
+    assert summ == 840.0, f"Сумма равна {summ}, а не 880.0"
 
 
 def test_10():
-    summ = delivery_cost_calculation(30.1, "small", False, "normal")
-    assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
+    summ = delivery_cost_calculation(30.1, "big", False, "normal")
+    assert summ == 500.0, f"Сумма равна {summ}, а не 500.0"
+
 
 def test_11():
     summ = delivery_cost_calculation(67.0, "small", False, "normal")
+    assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
+
+
+def test_min_cost():
+    summ = delivery_cost_calculation(4.0, "small", False, "normal")
     assert summ == 400.0, f"Сумма равна {summ}, а не 400.0"
 
 
@@ -88,5 +94,5 @@ def test_workload_limited_value(workload):
 
 
 def test_distance_for_fragile_cargo():
-    text = delivery_cost_calculation(32, "big", True, "increased")
+    text = delivery_cost_calculation(90, "small", True, "high")
     assert text == "Хрупкие грузы нельзя возить на расстояние более 30 км.", f"Текс равен '{text}'"
