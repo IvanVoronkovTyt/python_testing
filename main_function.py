@@ -41,7 +41,7 @@ def delivery_cost_calculation(distance: float | int, dimensions: str, fragile: b
     # Базовая стоимость доставки
     price_delivery = 0
 
-    # Проверка на типы данных
+    # Ограничения данных в переменных для расчета стоимости
     if not isinstance(distance, (float, int)):
         return "Расстояния до пункта назначения может быть только целочисленное или число с плавающей точкой"
     if dimensions not in dimensions_dict:
@@ -67,7 +67,7 @@ def delivery_cost_calculation(distance: float | int, dimensions: str, fragile: b
     if fragile and 0 <= distance <= 30:
         price_delivery += 300
     elif fragile and distance > 30:
-        return "Хрупкие грузы нельзя возить на расстояние более 30 км"
+        return "Хрупкие грузы нельзя возить на расстояние более 30 км."
 
     # Расчет стоимости в зависимости от загруженности службы доставки
     price_delivery *= workload_dict.get(workload, 1.0)
